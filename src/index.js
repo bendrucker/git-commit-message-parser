@@ -17,9 +17,14 @@ function header (line) {
   };
 }
 
+function body (lines) {
+  return lines.slice(2, lines.length - 2).join('\n');
+}
+
 exports.parse = function parseMessage (message) {
   var lines = message.split('\n');
   return {
-    header: header(lines[0])
+    header: header(lines[0]),
+    body: body(lines)
   };
 };

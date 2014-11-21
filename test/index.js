@@ -39,4 +39,14 @@ describe('git-commit-parser', function () {
 
   });
 
+  describe('body', function () {
+
+    it('parses the body', function () {
+      expect(parsed.body)
+        .to.match(/^Hey/)
+        .and.match(/footer\.$/);
+    });
+
+  });
+
 });
