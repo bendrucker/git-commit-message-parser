@@ -1,0 +1,6 @@
+feat(project): adds a commit subject
+
+Hey there team! This is the commit body. It is full of lovely information.
+Break lines whenever you want, but a double linebreak will start the footer.
+
+Put ticket closes, breaking change notices, and other metadata here in the footer.
