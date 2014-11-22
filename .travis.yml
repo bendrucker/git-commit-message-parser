@@ -9,4 +9,4 @@ deploy:
   on:
     tags: true
     all_branches: true
-    repo: bendrucker/git-commit-parser
+    repo: bendrucker/git-commit-message-parser
