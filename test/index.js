@@ -45,7 +45,7 @@ describe('git-commit-parser', function () {
     it('parses the body', function () {
       expect(parsed.body)
         .to.match(/^Hey/)
-        .and.match(/too\.\s$/);
+        .and.match(/too\.$/);
     });
 
   });
@@ -75,7 +75,7 @@ describe('git-commit-parser', function () {
     it('parses the body', function () {
       expect(parsed.body)
         .to.match(/^Hey/)
-        .and.match(/too\.\s\n$/);
+        .and.match(/too\.\n$/);
     });
 
   });
