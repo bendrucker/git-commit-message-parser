@@ -2,4 +2,4 @@ feat(project): adds a commit subject
 
 Hey there team! This is the commit body. It is full of lovely information.
 
-You can start new paragraphs here too. 
+You can start new paragraphs here too.

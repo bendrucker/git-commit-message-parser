@@ -1,6 +1,8 @@
 'use strict';
 
-var util = require('util');
+var util    = require('util');
+var split   = require('split');
+var through = require('through2');
 
 // https://github.com/angular/angular.js/blob/master/validate-commit-msg.js#L19
 var pattern = /^(?:fixup!\s*)?(\w*)(\(([\w\$\.\*/-]*)\))?\: (.*)$/;
@@ -17,14 +19,41 @@ function header (line) {
   };
 }
 
-function body (lines) {
-  return lines.slice(1, lines.length).join('\n');
+function parseStream (messageStream) {
+  var i = 0;
+  var parsed = {
+    body: ''
+  };
+
+  function transform (chunk, enc, callback) {
+    if (i === 0) {
+      parsed.header = header(chunk);
+    }
+    else if (i !== 1) {
+      parsed.body += chunk + '\n';
+    }
+    i++;
+    callback();
+  }
+
+  function flush (callback) {
+    this.push(parsed);
+    callback();
+  }
+
+  return messageStream
+    .pipe(split())
+    .pipe(through.obj(transform, flush));
 }
 
-exports.parse = function parseMessage (message) {
+function parseString (message) {
   var lines = message.split('\n');
   return {
     header: header(lines.shift()),
-    body: body(lines)
+    body: lines.slice(1, lines.length).join('\n')
   };
+}
+
+exports.parse = function (message) {
+  return typeof message.pipe === 'function' ? parseStream(message) : parseString(message);
 };

@@ -1,8 +1,10 @@
 'use strict';
 
-var expect = require('chai').expect;
-var fs     = require('fs');
-var parser = require('../');
+var expect  = require('chai').expect;
+var fs      = require('fs');
+var through = require('through2');
+var s2p     = require('stream-to-promise');
+var parser  = require('../');
 
 describe('git-commit-parser', function () {
 
@@ -40,6 +42,36 @@ describe('git-commit-parser', function () {
   });
 
   describe('body', function () {
+
+    it('parses the body', function () {
+      expect(parsed.body)
+        .to.match(/^Hey/)
+        .and.match(/too\.\s$/);
+    });
+
+  });
+
+  describe('streaming', function () {
+
+    before(function (done) {
+      var commit = fs.createReadStream(__dirname + '/commit.txt', {
+        encoding: 'utf8'
+      });
+      parser.parse(commit)
+        .on('data', function (_parsed_) {
+          parsed = _parsed_;
+        })
+        .on('error', done)
+        .on('finish', done);
+    });
+
+    it('parses the header', function () {
+      expect(parsed.header).to.contain({
+        type: 'feat',
+        scope: 'project',
+        subject: 'adds a commit subject'
+      });
+    });
 
     it('parses the body', function () {
       expect(parsed.body)
