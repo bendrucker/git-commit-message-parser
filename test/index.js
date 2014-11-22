@@ -3,7 +3,6 @@
 var expect  = require('chai').expect;
 var fs      = require('fs');
 var through = require('through2');
-var s2p     = require('stream-to-promise');
 var parser  = require('../');
 
 describe('git-commit-parser', function () {
