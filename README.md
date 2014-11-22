@@ -1,7 +1,7 @@
 git-commit-parser [![Build Status](https://travis-ci.org/bendrucker/git-commit-parser.svg?branch=master)](https://travis-ci.org/bendrucker/git-commit-parser)
 =================
 
-Parse commit messages using a simplified version of the the [AngularJS style](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#).
+Parse commit messages from a plain string or a stream using a simplified version of the the [AngularJS style](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#).
 
 ## Install
 
@@ -11,7 +11,9 @@ $ npm install --save git-commit-parser
 
 ## API
 
-#### `parser.parse(message)` -> `Object`
+#### `parser.parse(message)` -> `Object` / `Stream`
+
+`message` can be a `String` or a `Stream`.
 
 ##### Input
 ```
