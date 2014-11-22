@@ -44,7 +44,7 @@ describe('git-commit-parser', function () {
     it('parses the body', function () {
       expect(parsed.body)
         .to.match(/^Hey/)
-        .and.match(/footer\.$/);
+        .and.match(/too\.\s\n$/);
     });
 
   });

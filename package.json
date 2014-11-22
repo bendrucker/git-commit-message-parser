@@ -1,7 +1,7 @@
 {
   "name": "git-commit-parser",
   "version": "1.0.0",
-  "description": "Parse commit messages according to the AngularJS format",
+  "description": "Parse commit messages according to the AngularJS header format",
   "main": "./src",
   "directories": {
     "test": "test"

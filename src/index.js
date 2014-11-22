@@ -18,13 +18,13 @@ function header (line) {
 }
 
 function body (lines) {
-  return lines.slice(2, lines.length - 2).join('\n');
+  return lines.slice(1, lines.length).join('\n');
 }
 
 exports.parse = function parseMessage (message) {
   var lines = message.split('\n');
   return {
-    header: header(lines[0]),
+    header: header(lines.shift()),
     body: body(lines)
   };
 };
