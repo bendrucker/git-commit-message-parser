@@ -1,3 +1,12 @@
 language: node_js
 node_js:
 - '0.10'
+deploy:
+  provider: npm
+  email: bvdrucker@gmail.com
+  api_key:
+    secure: JZuuURFo6ubqb9EyVIixXsvmpSkOHImOh3yoifdMxzQGT4K55d7zWG5AtKeDQxLtXr++/uHbhi/Y55szE4g7HdtKgm3a0abu4lQNdxWXteRcmAoQoYL//aFGkUzBGULvW1ntjpAZrWlwU0fZ/t4RR89A9DICoi4NPnFA+JjQ5Hc=
+  on:
+    tags: true
+    all_branches: true
+    repo: bendrucker/git-commit-parser
