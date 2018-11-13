@@ -1,4 +1,4 @@
-git-commit-message-parser [![Build Status](https://travis-ci.org/bendrucker/git-commit-message-parser.svg?branch=master)](https://travis-ci.org/bendrucker/git-commit-message-parser)
+git-commit-message-parser [![Build Status](https://travis-ci.org/bendrucker/git-commit-message-parser.svg?branch=master)](https://travis-ci.org/bendrucker/git-commit-message-parser) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/git-commit-message-parser.svg)](https://greenkeeper.io/)
 =================
 
 Parse commit messages from a plain string or a stream using a simplified version of the the [AngularJS style](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#).
